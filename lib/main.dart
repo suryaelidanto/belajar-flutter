@@ -14,30 +14,24 @@ class MyApplication extends StatelessWidget {
         debugShowCheckedModeBanner: false,
         home: Scaffold(
           appBar: AppBar(title: Text("List View")),
-          body: ListView.builder(
-            itemCount: 10,
-            itemBuilder: ((context, index) {
-              return Column(
-                children: [
-                  ListTile(
-                    contentPadding: EdgeInsets.all(10),
-                    title: Text("Cintara Surya Elidanto"),
-                    subtitle: Text(
-                      "Hai kamu sudah pernah pergi kah untuk berjalan-jalan denganku wahai sobatku! hahaha aku keren banget!",
-                      maxLines: 2,
-                      overflow: TextOverflow.ellipsis,
-                    ),
-                    leading: CircleAvatar(backgroundColor: Colors.amber),
-                    trailing: Text("10:00 PM"),
-                    onTap: () => log("Hello Bang"),
-                  ),
-                  Divider(
-                    color: Colors.black,
-                  ),
-                ],
-              );
-            }),
-          ),
+          body: Container(
+              padding: EdgeInsets.symmetric(vertical: 20, horizontal: 10),
+              child: Column(children: [
+                Text(
+                  "Hello World! 😎✌",
+                  style: TextStyle(fontSize: 30),
+                ),
+                Center(
+                  child: Container(
+                      width: 400,
+                      height: 300,
+                      color: Colors.blue,
+                      child: Image.asset(
+                        "img/test.jpg",
+                        fit: BoxFit.cover,
+                      )),
+                )
+              ])),
         ));
   }
 }
