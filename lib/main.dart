@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -8,48 +10,34 @@ void main() {
 class MyApplication extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    // final List<Color> myColor = [
-    //   Colors.blue,
-    //   Colors.black,
-    //   Colors.green,
-    //   Colors.purple
-    // ];
-
-    List<Widget> myList = List.generate(
-        100,
-        (index) => Text(
-              "${index + 1}",
-              style: TextStyle(fontSize: 5 + double.parse(index.toString())),
-            ));
-
-    // List<Container> data = [
-    //   Container(
-    //     height: 200,
-    //     width: 200,
-    //     color: Colors.green,
-    //   ),
-    //   Container(
-    //     height: 200,
-    //     width: 200,
-    //     color: Colors.blue,
-    //   ),
-    //   Container(
-    //     height: 200,
-    //     width: 200,
-    //     color: Colors.amber,
-    //   ),
-    //   Container(
-    //     height: 200,
-    //     width: 200,
-    //     color: Colors.red,
-    //   )
-    // ];
     return MaterialApp(
         debugShowCheckedModeBanner: false,
         home: Scaffold(
-            appBar: AppBar(title: Text("List View")),
-            body: ListView(
-              children: myList,
-            )));
+          appBar: AppBar(title: Text("List View")),
+          body: ListView.builder(
+            itemCount: 10,
+            itemBuilder: ((context, index) {
+              return Column(
+                children: [
+                  ListTile(
+                    contentPadding: EdgeInsets.all(10),
+                    title: Text("Cintara Surya Elidanto"),
+                    subtitle: Text(
+                      "Hai kamu sudah pernah pergi kah untuk berjalan-jalan denganku wahai sobatku! hahaha aku keren banget!",
+                      maxLines: 2,
+                      overflow: TextOverflow.ellipsis,
+                    ),
+                    leading: CircleAvatar(backgroundColor: Colors.amber),
+                    trailing: Text("10:00 PM"),
+                    onTap: () => log("Hello Bang"),
+                  ),
+                  Divider(
+                    color: Colors.black,
+                  ),
+                ],
+              );
+            }),
+          ),
+        ));
   }
 }
