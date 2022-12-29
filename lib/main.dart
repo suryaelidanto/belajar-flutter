@@ -22,7 +22,7 @@ class MyApplication extends StatelessWidget {
     return MaterialApp(
         debugShowCheckedModeBanner: false,
         home: Scaffold(
-            appBar: AppBar(title: Text("Extract Widget")),
+            appBar: AppBar(title: Text("Dummy Chat")),
             body: ListView.builder(
               itemCount: 100,
               itemBuilder: (context, index) => ChatItem(
