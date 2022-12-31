@@ -13,12 +13,31 @@ class MyApplication extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       home: Scaffold(
         appBar: AppBar(
-          title: Text("Date Format"),
-        ),
-        body: Center(
-          child: Container(
-            child: Text(DateFormat.yMMMEd().add_Hms().format(DateTime.now()),
-                style: TextStyle(fontSize: 20, fontFamily: "Poppins")),
+          backgroundColor: Colors.teal,
+          leading: Container(
+            color: Colors.black,
+          ),
+          title: Container(
+            width: 100,
+            height: 10,
+            color: Colors.amber,
+          ),
+          centerTitle: true,
+          actions: [
+            Container(
+              width: 100,
+              color: Colors.green,
+            ),
+          ],
+          // flexibleSpace: Container(
+          //   height: 1000,
+          //   color: Colors.black,
+          // )
+          bottom: PreferredSize(
+            preferredSize: Size.fromHeight(100),
+            child: Container(
+              child: Text("hehehe"),
+            ),
           ),
         ),
       ),
