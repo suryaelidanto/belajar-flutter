@@ -1,44 +1,64 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:intl/intl.dart';
 
 void main() {
-  runApp(MyApplication());
+  runApp(MyApp());
 }
 
-class MyApplication extends StatelessWidget {
+class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
   @override
   Widget build(BuildContext context) {
+    List<Tab> myTab = [
+      Tab(
+        icon: Icon(Icons.home),
+      ),
+      Tab(
+        icon: Icon(Icons.camera),
+      ),
+      Tab(
+        icon: Icon(Icons.settings),
+      ),
+    ];
+
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: Scaffold(
-        appBar: AppBar(
-          backgroundColor: Colors.teal,
-          leading: Container(
-            color: Colors.black,
-          ),
-          title: Container(
-            width: 100,
-            height: 10,
-            color: Colors.amber,
-          ),
-          centerTitle: true,
-          actions: [
-            Container(
-              width: 100,
-              color: Colors.green,
-            ),
-          ],
-          // flexibleSpace: Container(
-          //   height: 1000,
-          //   color: Colors.black,
-          // )
-          bottom: PreferredSize(
-            preferredSize: Size.fromHeight(100),
-            child: Container(
-              child: Text("hehehe"),
+      home: DefaultTabController(
+        initialIndex: 2,
+        length: myTab.length,
+        child: Scaffold(
+          appBar: AppBar(
+            title: Text("Tabbar Widget"),
+            bottom: PreferredSize(
+              preferredSize: Size.fromHeight(50),
+              child: TabBar(
+                labelColor: Colors.black,
+                unselectedLabelColor: Colors.white,
+                unselectedLabelStyle: TextStyle(),
+                // indicatorColor: Colors.yellow,
+                // indicatorWeight: 5,
+                // indicatorPadding: EdgeInsets.all(10),
+                indicator: BoxDecoration(
+                  color: Colors.amber,
+                  border:
+                      Border(bottom: BorderSide(color: Colors.black, width: 5)),
+                ),
+                tabs: myTab,
+              ),
             ),
           ),
+          body: TabBarView(children: [
+            Center(
+              child: Text("Ini halaman pertama 😎"),
+            ),
+            Center(
+              child: Text("Ini halaman kedua 😂"),
+            ),
+            Center(
+              child: Text("Ini halaman ketiga 😁"),
+            ),
+          ]),
         ),
       ),
     );
