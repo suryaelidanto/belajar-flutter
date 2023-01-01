@@ -17,9 +17,10 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
+  bool status = true;
+
   @override
   Widget build(BuildContext context) {
-    var status = true;
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: Scaffold(
@@ -66,10 +67,11 @@ class _MyAppState extends State<MyApp> {
                   suffixIcon: IconButton(
                       onPressed: () {
                         setState(() {
-                          status = false;
+                          status = !status;
                         });
                       },
-                      icon: Icon(Icons.remove_red_eye)),
+                      icon: Icon(
+                          status ? Icons.visibility : Icons.visibility_off)),
                   // prefixText: "Name : ",
                   // prefixIcon: Icon(Icons.person_add),
                   hintText: "Password...",
